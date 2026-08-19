@@ -63,6 +63,14 @@ SANS_CANDIDATES = [
 ]
 
 
+# ------------------------------------------------- proporciones de la lámina
+FRAME_RATIO = 3.4 / 4.4   # proporción del marco en styles.css (.ph)
+MAT_INSET   = 0.065   # margen del passe-partout (laterales y superior), del ancho
+MAT_FOOT    = 1.30    # el margen inferior pesa más, como en el montaje de galería
+ARCH_WIDTH  = 0.46    # luz del vano, en fracción del ancho
+ARCH_HEIGHT = 0.70    # alto del arco, en fracción del alto útil del passe-partout
+
+
 # ------------------------------------------------------------ utilidades
 
 def lerp(a, b, t):
@@ -253,60 +261,69 @@ def save(img, name, quality=90):
 
 # ------------------------------------------------------- familia vertical
 
-def vertical(size, stops, light, seed, shaft=None, arc_alpha=62, rule_alpha=34,
-             vig=0.30, grain_amount=0.055, skip_grain=False):
-    """Retrato abstracto: muro en degradado, luz diagonal y un arco tenue.
+def vertical(size, stops, light, seed, pool=None, mat_alpha=64, arc_alpha=74,
+             vig=0.30, grain_amount=0.055):
+    """Retrato abstracto: lámina montada en passe-partout.
 
-    Los tres verticales comparten esta construcción —muro, luz, arco, filete—
-    y solo cambian la clave tonal y la temperatura de la luz. La geometría se
-    mantiene centrada y lejos de los bordes para que `object-fit: cover` pueda
-    recortar sin romper la composición.
+    La composición está construida hacia adentro desde el borde de la imagen,
+    no hacia el centro: un filete interior (el passe-partout) deja un margen
+    uniforme por los cuatro lados y el arco se apoya en su base, centrado y
+    con aire suficiente sobre el vértice. Así la imagen dialoga con el marco
+    de oro que el CSS dibuja por fuera, en vez de ignorarlo.
+
+    Todo es simétrico respecto al eje vertical —degradado, luz y geometría—
+    para que el conjunto se lea calmado. Los tres verticales comparten esta
+    construcción y solo cambian la clave tonal y la temperatura de la luz.
     """
     w, h = size
-    img = gradient(size, stops, angle_deg=58)
+    img = gradient(size, stops, angle_deg=90)
 
-    # Franja de luz cayendo en diagonal sobre el muro.
-    if shaft:
-        scolor, scenter, swidth, sstrength = shaft
-        img = sheen(img, scolor, band_mask(size, 118, scenter, swidth), sstrength)
-
-    # Foco suave, la fuente de esa luz.
     lcolor, lcx, lcy, lrad, lstr = light
     img = glow(img, lcolor, lcx, lcy, lrad, lstr, falloff=1.9)
+    if pool:                       # segunda luz, cálida y baja
+        pcolor, pcx, pcy, prad, pstr = pool
+        img = glow(img, pcolor, pcx, pcy, prad, pstr, falloff=2.0)
+
+    m = w * MAT_INSET              # margen lateral y superior del passe-partout
+    base = h - m * MAT_FOOT        # línea de apoyo del arco: el pie pesa más
+    # Los marcos recortan por los lados lo que sobre de FRAME_RATIO. Se dibuja
+    # el margen lateral ya compensado para que, una vez recortada, la lámina
+    # tenga el mismo aire a izquierda, derecha y arriba.
+    crop = max(0.0, (w - h * FRAME_RATIO) / 2)
+    m_side = m + crop
+    aw = w * ARCH_WIDTH            # luz del vano
+    r = aw / 2
+    arc_h = (h - 2 * m) * ARCH_HEIGHT
+    left, right = (w - aw) / 2, (w + aw) / 2
+    # Grosor pensado para el tamaño al que se muestra cada imagen: un filete
+    # de 1 px en el original se evapora cuando el navegador la reduce.
+    lw = w / 430
 
     def geometry(d, s):
-        # Arco de medio punto: la única figura, apenas insinuada.
-        aw = w * 0.62          # ancho del vano
-        left = (w - aw) / 2
-        top = h * 0.30         # arranque de la curva
-        line_w = max(1, int(1.6 * s))
+        def px(v):
+            return int(round(v * s))
+        line = max(1, int(round(lw * s)))
+        # Passe-partout.
+        d.rectangle([px(m_side), px(m), px(w - m_side), px(base)],
+                    outline=GOLD_PALE + (mat_alpha,), width=line)
+        # Arco de medio punto centrado y apoyado en la base del passe-partout.
         col = GOLD_PALE + (arc_alpha,)
-        d.arc([left * s, top * s, (left + aw) * s, (top + aw) * s],
-              start=180, end=360, fill=col, width=line_w)
-        # Jambas hasta el pie del encuadre.
-        y0 = int((top + aw / 2) * s)
-        d.line([(left * s, y0), (left * s, int(h * 0.94 * s))], fill=col, width=line_w)
-        d.line([((left + aw) * s, y0), ((left + aw) * s, int(h * 0.94 * s))],
-               fill=col, width=line_w)
-        # Filete horizontal a la altura de la línea de tierra.
-        y = int(h * 0.94 * s)
-        d.line([(int(w * 0.08 * s), y), (int(w * 0.92 * s), y)],
-               fill=GOLD_PALE + (rule_alpha,), width=max(1, int(1.2 * s)))
+        d.arc([px(left), px(base - arc_h), px(right), px(base - arc_h + aw)],
+              start=180, end=360, fill=col, width=line)
+        d.line([(px(left), px(base - arc_h + r)), (px(left), px(base))], fill=col, width=line)
+        d.line([(px(right), px(base - arc_h + r)), (px(right), px(base))], fill=col, width=line)
 
     img = Image.alpha_composite(img.convert("RGBA"), overlay(size, geometry)).convert("RGB")
     img = vignette(img, strength=vig, radius=1.05)
-    if skip_grain:   # el grano se aplica al final, tras las luces añadidas
-        return img
     return grain(img, amount=grain_amount, seed=seed)
 
 
 def retrato_azul():
-    """Clave alta de la familia: azul institucional luminoso."""
+    """Clave alta de la familia: azul institucional, luz cenital."""
     return vertical(
         (680, 880),
         stops=[(0.0, INK_LIGHT), (0.55, INK), (1.0, INK_DEEP)],
-        light=(PAPER_2, 0.70, 0.18, 0.95, 0.30),
-        shaft=(PAPER_2, 0.42, 0.20, 0.16),
+        light=(PAPER_2, 0.50, 0.20, 0.92, 0.26),
         seed=1001,
     )
 
@@ -316,27 +333,22 @@ def retrato_negro():
     return vertical(
         (680, 880),
         stops=[(0.0, SLATE), (0.5, (0x1a, 0x1f, 0x29)), (1.0, NEAR_BLACK)],
-        light=(GOLD_PALE, 0.72, 0.16, 0.82, 0.15),
-        shaft=(GOLD_PALE, 0.40, 0.18, 0.09),
+        light=(GOLD_PALE, 0.50, 0.18, 0.85, 0.13),
         seed=2002,
-        arc_alpha=54, rule_alpha=28, vig=0.34, grain_amount=0.06,
+        mat_alpha=56, arc_alpha=64, vig=0.34, grain_amount=0.06,
     )
 
 
 def escenario():
-    """Clave cálida: el foco de sala abriendo un halo en el fondo del escenario."""
-    img = vertical(
+    """Clave cálida: el foco de sala abriendo un halo al pie del vano."""
+    return vertical(
         (840, 1080),
         stops=[(0.0, INK), (0.5, (0x1a, 0x27, 0x42)), (1.0, INK_DEEP)],
-        light=(GOLD_PALE, 0.50, 0.74, 0.90, 0.20),
-        shaft=(GOLD_PALE, 0.46, 0.24, 0.11),
+        light=(PAPER_2, 0.50, 0.12, 0.95, 0.11),
+        pool=(GOLD_PALE, 0.50, 0.70, 0.66, 0.20),
         seed=3003,
-        arc_alpha=58, rule_alpha=30, vig=0.42,
-        skip_grain=True,
+        mat_alpha=60, arc_alpha=70, vig=0.40,
     )
-    # Halo alto y frío, muy abierto: profundidad de caja escénica.
-    img = glow(img, PAPER_2, 0.50, 0.06, 1.05, 0.10, falloff=2.2)
-    return grain(img, amount=0.055, seed=3003)
 
 
 # -------------------------------------------------------------------- OG
