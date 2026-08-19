@@ -21,11 +21,13 @@ internacional de **Fabeka Lebrón Pereyra**. Se publica con GitHub Pages.
 ├── site.js               Menú móvil + animaciones de entrada
 ├── favicon.svg           Monograma FL
 ├── set-domain.sh         Fija la URL pública y genera sitemap.xml
+├── tools/
+│   └── gen-placeholders.py   Genera las imágenes temporales de relleno
 ├── robots.txt
 ├── .nojekyll             Evita que GitHub Pages procese el sitio con Jekyll
 └── assets/
     ├── cv/               CV_Fabeka_Lebron_2026_ES.pdf · _EN.pdf
-    └── img/              Fotografías (pendientes de entrega)
+    └── img/              Imágenes (temporales — ver más abajo)
 ```
 
 ---
@@ -49,22 +51,48 @@ cargadas desde Google Fonts. El cuerpo usa Georgia como serif de sistema.
 
 ---
 
+## ⚠️ Imágenes temporales
+
+Las cuatro imágenes de `assets/img/` son **provisionales**. No son fotografías:
+son composiciones abstractas generadas con `tools/gen-placeholders.py` (Pillow),
+en la paleta de marca, para que el sitio no se vea a medio hacer mientras llega
+el material definitivo. No hay ninguna persona en ellas, ni real ni generada.
+
+| Archivo | Tamaño | Dónde se usa |
+|---|---|---|
+| `assets/img/fabeka-retrato-azul.jpg` | 680 × 880 | Hero de `index.html` |
+| `assets/img/fabeka-retrato-negro.jpg` | 680 × 880 | Bio de `index.html` |
+| `assets/img/fabeka-escenario.jpg` | 840 × 1080 | `conferencias.html` |
+| `assets/img/og-fabeka-lebron.jpg` | 1200 × 630 | Preview al compartir en redes |
+
+**Para sustituirlas** basta con sobrescribir cada archivo respetando el nombre y
+la proporción. No hay que tocar el HTML: las etiquetas `<img>` ya están puestas
+y los marcos usan `aspect-ratio: 3.4/4.4` con `object-fit: cover` (las verticales
+recortan por los lados si la foto es más ancha). Después, borrar en los tres
+marcos el comentario `<!-- IMAGEN TEMPORAL … -->` y este apartado del README, y
+—si ya no hace falta— la carpeta `tools/`.
+
+El `alt` de las tres verticales ya está escrito pensando en la fotografía real
+("Retrato de Fabeka Lebrón"), justamente para no tener que editarlo el día del
+relevo.
+
+**Regenerar las temporales** (opcional, el resultado es idéntico en cada
+ejecución):
+
+```bash
+pip install Pillow
+python3 tools/gen-placeholders.py
+```
+
+---
+
 ## Pendientes antes del lanzamiento público
 
-1. **Fotografías.** Hay tres marcos con marcador de posición. Para activarlos, colocar los
-   archivos en `assets/img/` y sustituir el comentario HTML por la etiqueta `<img>` que ya
-   está escrita justo encima de cada `<div class="note">`:
+1. **Fotografías oficiales.** Los tres marcos y la imagen social ya están activos, pero
+   con imágenes temporales. Sustituirlas en cuanto llegue el material de la clienta:
+   ver **⚠️ Imágenes temporales** arriba.
 
-   | Página | Archivo esperado |
-   |---|---|
-   | `index.html` (hero) | `assets/img/fabeka-retrato-azul.jpg` |
-   | `index.html` (bio) | `assets/img/fabeka-retrato-negro.jpg` |
-   | `conferencias.html` | `assets/img/fabeka-escenario.jpg` |
-
-2. **Imagen para redes.** Crear `assets/img/og-fabeka-lebron.jpg` (1200 × 630 px). Es la
-   miniatura que aparece al compartir el sitio en WhatsApp, LinkedIn y X.
-
-3. **URL pública.** El sitio aún no tiene dominio fijado: no hay `canonical`, `og:url`
+2. **URL pública.** El sitio aún no tiene dominio fijado: no hay `canonical`, `og:url`
    ni `sitemap.xml`. En cuanto se conozca la URL de GitHub Pages (o el dominio propio),
    ejecutar una sola vez:
 
