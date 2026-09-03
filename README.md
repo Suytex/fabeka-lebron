@@ -10,7 +10,8 @@ internacional de **Fabeka Lebrón Pereyra**. Se publica con GitHub Pages.
 ```
 .
 ├── index.html            Portada — narrativa en 7 capítulos
-├── pensamiento.html      Ensayos y pensamiento
+├── pensamiento.html      Entrada al pensamiento e índice de los ensayos
+├── ensayos.html          Los seis ensayos completos
 ├── trayectoria.html      Trayectoria completa
 ├── consejos.html         Consejos & Advisory
 ├── mentoria.html         Mentoría
@@ -92,17 +93,17 @@ python3 tools/gen-placeholders.py
    con imágenes temporales. Sustituirlas en cuanto llegue el material de la clienta:
    ver **⚠️ Imágenes temporales** arriba.
 
-2. **URL pública.** El sitio aún no tiene dominio fijado: no hay `canonical`, `og:url`
-   ni `sitemap.xml`. En cuanto se conozca la URL de GitHub Pages (o el dominio propio),
-   ejecutar una sola vez:
+2. **URL pública.** Ya fijada en `https://suytex.github.io/fabeka-lebron`. Si cambia
+   (dominio propio, otro repositorio), basta con volver a ejecutar:
 
    ```bash
-   ./set-domain.sh https://<usuario>.github.io/<repo>
+   ./set-domain.sh https://<nueva-url>
    ```
 
-   El script inserta `canonical` y `og:url` en las 8 páginas, pasa las imágenes sociales
-   a URL absoluta y genera `sitemap.xml` y `robots.txt`. Es idempotente: se vuelve a
-   ejecutar tal cual cuando cambie el dominio.
+   El script inserta `canonical` y `og:url` en las 9 páginas, pasa las imágenes sociales
+   a URL absoluta y regenera `sitemap.xml` y `robots.txt`. Es idempotente. **Hay que
+   volver a ejecutarlo cada vez que se añada una página nueva**, después de darla de alta
+   en el array `PAGES` del propio script.
 
 ---
 

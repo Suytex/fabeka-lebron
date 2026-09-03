@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Fija la URL pública del sitio: inserta canonical + og:url en las 8 páginas
+# Fija la URL pública del sitio: inserta canonical + og:url en todas las páginas
 # y genera sitemap.xml y robots.txt.
 #
 #   ./set-domain.sh https://usuario.github.io/fabeka-lebron
@@ -13,7 +13,7 @@ set -euo pipefail
 BASE="${1%/}"
 DATE=$(date +%F)
 
-PAGES=(index.html pensamiento.html trayectoria.html consejos.html
+PAGES=(index.html pensamiento.html ensayos.html trayectoria.html consejos.html
        mentoria.html plataformas.html conferencias.html prensa.html)
 
 for f in "${PAGES[@]}"; do
