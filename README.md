@@ -3,6 +3,9 @@
 Sitio estático (HTML + CSS + JS, sin build) de la firma de pensamiento e influencia
 internacional de **Fabeka Lebrón Pereyra**. Se publica con GitHub Pages.
 
+👉 **[ESTADO.md](ESTADO.md)** — en qué punto está el proyecto, qué se entregó y qué
+queda pendiente. Empieza por ahí si retomas el trabajo después de un tiempo.
+
 ---
 
 ## Estructura
@@ -22,6 +25,7 @@ internacional de **Fabeka Lebrón Pereyra**. Se publica con GitHub Pages.
 ├── site.js               Menú móvil + animaciones de entrada
 ├── favicon.svg           Monograma FL
 ├── set-domain.sh         Fija la URL pública y genera sitemap.xml
+├── ESTADO.md             En qué punto está el proyecto y qué queda pendiente
 ├── tools/
 │   └── gen-placeholders.py   Genera las imágenes temporales de relleno
 ├── robots.txt
@@ -87,7 +91,10 @@ python3 tools/gen-placeholders.py
 
 ---
 
-## Pendientes antes del lanzamiento público
+## Pendientes
+
+El estado completo y la deuda técnica priorizada están en **[ESTADO.md](ESTADO.md)**.
+Lo que toca a este README:
 
 1. **Fotografías oficiales.** Los tres marcos y la imagen social ya están activos, pero
    con imágenes temporales. Sustituirlas en cuanto llegue el material de la clienta:
@@ -104,6 +111,45 @@ python3 tools/gen-placeholders.py
    a URL absoluta y regenera `sitemap.xml` y `robots.txt`. Es idempotente. **Hay que
    volver a ejecutarlo cada vez que se añada una página nueva**, después de darla de alta
    en el array `PAGES` del propio script.
+
+---
+
+## Añadir una página nueva
+
+El menú y el pie están escritos a mano en cada archivo, así que una página nueva
+toca todas las demás. Orden que funciona:
+
+1. **Crear el archivo.** Copiar una página existente de estructura parecida
+   (`pensamiento.html` para una página de índice, `ensayos.html` para una de
+   texto largo) y sustituir `<title>`, las metaetiquetas `description`, `og:` y
+   `twitter:`, el numeral romano de `.chapter-head` y el contenido.
+
+2. **Darla de alta en la navegación de las 9 páginas** — son tres bloques por
+   archivo, 27 inserciones en total:
+   - `<nav>` → dentro de `.links`
+   - `#mobile-menu`
+   - `<footer>` → dentro de `.map`
+
+   En su propia página, el enlace lleva `class="now"`.
+
+3. **Registrarla en `set-domain.sh`**, en el array `PAGES` de la cabecera.
+
+4. **Reejecutar el script** para que reciba `canonical`, `og:url` y entre en el
+   sitemap:
+
+   ```bash
+   ./set-domain.sh https://suytex.github.io/fabeka-lebron
+   ```
+
+5. **Revisar que el menú no se parta en dos líneas.** Cada enlace nuevo aprieta la
+   barra. Hoy caben 10 en una sola fila a partir de 1221 px; por debajo entra la
+   hamburguesa. Si se añade un enlace más habrá que volver a ajustar los dos
+   `@media` del bloque NAV en `styles.css`.
+
+6. **Comprobar antes de publicar:** que no queden enlaces ni anclas rotas, que
+   haya un solo `<h1>`, y que la página se vea bien en escritorio y en móvil.
+
+7. **Actualizar el árbol de la estructura** de este README y `ESTADO.md`.
 
 ---
 
