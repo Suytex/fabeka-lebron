@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Última actualización: **3 de septiembre de 2026**
+Última actualización: **19 de noviembre de 2026**
 
 Documento para retomar el trabajo sin tener que releer todo el sitio. El README
 explica cómo funciona el proyecto; este archivo explica en qué punto está.
@@ -15,7 +15,8 @@ explica cómo funciona el proyecto; este archivo explica en qué punto está.
 | **Repositorio** | `Suytex/fabeka-lebron` |
 | **Rama de producción** | `main` — GitHub Pages despliega desde ahí, en la raíz |
 | **Despliegue** | Automático al fusionar en `main`. Tarda entre 30 y 60 segundos |
-| **Páginas** | 9 · `index` · `pensamiento` · `ensayos` · `trayectoria` · `consejos` · `mentoria` · `plataformas` · `conferencias` · `prensa` |
+| **Páginas** | 7 + 7 ensayos · `index` · `pensamiento` · `biografia` · `consejos` · `mentoria` · `plataformas` · `escritura` · `pensamiento/ensayo-i…vii` |
+| **Redirecciones** | `trayectoria` y `prensa` → `biografia` · `ensayos` → `pensamiento` · `conferencias` → `index` |
 | **Peso del código** | 263 líneas de CSS · 49 de JS · sin dependencias ni build |
 
 ---
@@ -26,6 +27,7 @@ explica cómo funciona el proyecto; este archivo explica en qué punto está.
 |---|---|
 | 19 ago 2026 | Sitio inicial, 8 páginas. URL pública fijada. Imágenes temporales de relleno |
 | 3 sep 2026 | Página **Ensayos** con los seis ensayos del documento v2.3 (PR #3) |
+| 19 nov 2026 | **v2.7** de la clienta: nueva estructura (Biografía, Escritura, 7 ensayos en `pensamiento/`), «Académica de Honor». Se le añadió la capa técnica: menú móvil desde `site.js`, favicon, Open Graph, canonical, sitemap, respaldo sin JS y fotos de relleno en `img/` |
 
 **Sobre la entrega del 3 de septiembre.** Los ensayos I–III ya estaban dentro de
 `pensamiento.html`; se movieron a `ensayos.html` junto con los tres nuevos, para
@@ -39,6 +41,13 @@ Cualquier ajuste de redacción lo aprueba Fabeka Lebrón.**
 ---
 
 ## Pendiente de la clienta
+
+**PDFs de Escritura.** `escritura.html` enlaza `docs/Discurso_de_Ingreso_Fabeka_Lebron.pdf`
+y `docs/Discurso_de_Contestacion_Jaume_Llopis.pdf` (este último con permiso del Dr. Llopis).
+Hasta que estén en `docs/`, esos dos enlaces dan 404.
+
+**Fotografías v2.7.** `img/foto-entrada.jpg`, `img/foto-mentoria.jpg` e `img/casa-1.jpg`
+son copias de los rellenos de `assets/img/`. Sobrescribir con las fotos reales.
 
 **Fotografías oficiales.** Las cuatro imágenes de `assets/img/` son composiciones
 abstractas de relleno, no fotografías. Los marcos ya están montados: basta con

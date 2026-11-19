@@ -13,8 +13,11 @@ set -euo pipefail
 BASE="${1%/}"
 DATE=$(date +%F)
 
-PAGES=(index.html pensamiento.html ensayos.html trayectoria.html consejos.html
-       mentoria.html plataformas.html conferencias.html prensa.html)
+PAGES=(index.html pensamiento.html biografia.html consejos.html mentoria.html
+       plataformas.html escritura.html
+       pensamiento/ensayo-i.html pensamiento/ensayo-ii.html pensamiento/ensayo-iii.html
+       pensamiento/ensayo-iv.html pensamiento/ensayo-v.html pensamiento/ensayo-vi.html
+       pensamiento/ensayo-vii.html)
 
 for f in "${PAGES[@]}"; do
   [ -f "$f" ] || continue
