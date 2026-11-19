@@ -3,54 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fabeka Lebrón — Firma de Pensamiento e Influencia Internacional</title>
+<title>Fabeka Lebrón</title>
 <link rel="canonical" href="https://suytex.github.io/fabeka-lebron/">
 <meta property="og:url" content="https://suytex.github.io/fabeka-lebron/">
-<meta name="description" content="Fabeka Lebrón Pereyra: educación, deporte y cultura al servicio de Iberoamérica. Gobernanza, pensamiento estratégico, diplomacia económica y mentoría desde Barcelona, São Paulo y Santo Domingo.">
+<!-- FL-HEAD: capa técnica añadida en la fusión v2.7 -->
 <meta name="author" content="Fabeka Lebrón Pereyra">
-
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fabeka Lebrón">
 <meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Fabeka Lebrón — Firma de Pensamiento e Influencia Internacional">
-<meta property="og:description" content="Durante los primeros treinta años de mi vida profesional construí instituciones. Quiero dedicar los próximos treinta a construir personas.">
+<meta property="og:title" content="Fabeka Lebrón">
+<meta property="og:description" content="Durante los primeros treinta años de mi vida profesional construí instituciones. Quiero dedicar los próximos treinta a construir personas. — Fabeka Lebrón">
 <meta property="og:image" content="https://suytex.github.io/fabeka-lebron/assets/img/og-fabeka-lebron.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Fabeka Lebrón — Firma de Pensamiento e Influencia Internacional">
-<meta name="twitter:description" content="Durante los primeros treinta años de mi vida profesional construí instituciones. Quiero dedicar los próximos treinta a construir personas.">
 <meta name="twitter:image" content="https://suytex.github.io/fabeka-lebron/assets/img/og-fabeka-lebron.jpg">
-
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#fdfcfa">
-
+<noscript><style>.rv{opacity:1!important;transform:none!important}#veil{display:none!important}</style></noscript>
+<script src="site.js" defer></script>
+<meta name="description" content="Durante los primeros treinta años de mi vida profesional construí instituciones. Quiero dedicar los próximos treinta a construir personas. — Fabeka Lebrón">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<style>
+  :root{
+    --ink:#1c2b4a;
+    --ink-70:#45526d;
+    --gold:#a9884b;
+    --gold-pale:#cbb586;
+    --paper:#fdfcfa;
+    --paper-2:#f7f5f0;
+    --line:#e7e2d8;
+    --gray:#8a857a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:17.5px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold-pale);color:#fff}
+  .display{font-family:'Cormorant Garamond',Georgia,serif}
+  .label{font-family:'Jost','Helvetica Neue',sans-serif;font-weight:300;letter-spacing:.34em;text-transform:uppercase}
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Fabeka Lebrón Pereyra",
-  "alternateName": "Fabeka Lebrón",
-  "url": "https://suytex.github.io/fabeka-lebron/",
-  "email": "fabeka@keichergroup.com",
-  "nationality": "Dominican Republic",
-  "jobTitle": "Founder & President, Iberoamerican Bridges",
-  "description": "Educación, deporte y cultura al servicio de Iberoamérica. Gobernanza, pensamiento estratégico, diplomacia económica y mentoría.",
-  "knowsLanguage": ["es", "en", "pt"],
-  "affiliation": [
-    { "@type": "Organization", "name": "IESE Center for Sports Management" },
-    { "@type": "Organization", "name": "Real Academia Europea de Doctores" },
-    { "@type": "Organization", "name": "Iberoamerican Bridges" }
-  ]
-}
-</script>
+  /* ============ ENTRADA RITUAL ============ */
+  #veil{
+    position:fixed;inset:0;z-index:1000;background:var(--paper);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:24px;transition:opacity 1.4s ease;
+  }
+  #veil.gone{opacity:0;pointer-events:none}
+  #veil .mono{
+    font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold);
+    letter-spacing:.5em;margin-bottom:60px;opacity:0;animation:rise 1.6s ease .3s forwards;
+  }
+  #veil .line{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:clamp(24px,3.4vw,40px);line-height:1.65;color:var(--ink);
+    max-width:820px;opacity:0;
+  }
+  #veil .line.l1{animation:rise 1.8s ease 1.2s forwards}
+  #veil .line.l2{animation:rise 1.8s ease 2.8s forwards;font-style:italic;color:var(--gold)}
+  #veil .enter{
+    margin-top:70px;opacity:0;animation:rise 1.6s ease 4.4s forwards;
+    background:none;border:none;cursor:pointer;color:var(--ink-70);
+    font-family:'Jost',sans-serif;font-weight:300;font-size:11px;letter-spacing:.4em;text-transform:uppercase;
+    padding:14px 6px;border-bottom:1px solid var(--gold);
+    transition:color .4s,letter-spacing .4s;
+  }
+  #veil .enter:hover{color:var(--gold);letter-spacing:.5em}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  /* ============ NAV ============ */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:30px 5vw;background:rgba(253,252,250,.94);backdrop-filter:blur(10px);
+    transition:box-shadow .5s,padding .5s;
+  }
+  nav.scrolled{box-shadow:0 1px 0 var(--line);padding:20px 5vw}
+  nav .brand{text-decoration:none;color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.3em;text-transform:uppercase}
+  nav .brand b{font-weight:500;color:var(--gold)}
+  nav .links{display:flex;gap:36px;align-items:center}
+  nav .links a{
+    font-family:'Jost',sans-serif;font-weight:300;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--ink-70);text-decoration:none;transition:color .35s;
+  }
+  nav .links a:hover{color:var(--gold)}
+  @media(max-width:900px){nav .links{display:none}}
+
+  /* ============ HERO ============ */
+  header{min-height:100vh;display:flex;align-items:center;padding:150px 5vw 90px;position:relative}
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;align-items:center;max-width:1320px;margin:0 auto;width:100%}
+  @media(max-width:920px){.hero{grid-template-columns:1fr;gap:64px}}
+  .hero .label{font-size:10.5px;color:var(--gold);margin-bottom:44px}
+  .hero .hero-line{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(17px,1.55vw,21px);line-height:1.6;color:var(--gold);max-width:560px;margin:0 0 40px}
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:clamp(32px,4vw,54px);line-height:1.42;color:var(--ink);
+  }
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero .sub{margin-top:38px;font-style:italic;color:var(--ink-70);font-size:18px;max-width:48ch}
+  .hero .cta{margin-top:64px;display:flex;gap:44px;align-items:center}
+  .quiet-link{
+    font-family:'Jost',sans-serif;font-weight:300;font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;padding-bottom:10px;border-bottom:1px solid var(--gold);
+    transition:color .35s,letter-spacing .35s;
+  }
+  .quiet-link:hover{color:var(--gold)}
+  .portrait{position:relative}
+  .portrait .ph{
+    aspect-ratio:3.4/4.4;width:100%;overflow:hidden;position:relative;
+    background:linear-gradient(165deg,#efece5,#ddd7c9);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .portrait .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .portrait .ph .note{font-family:'Jost',sans-serif;font-weight:300;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#a49c8d;text-align:center;line-height:2.4}
+  .portrait::before{
+    content:"";position:absolute;top:26px;left:-26px;right:26px;bottom:-26px;
+    border:1px solid var(--gold-pale);z-index:-1;
+  }
+  .scroll-hint{
+    position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+    font-family:'Jost',sans-serif;font-weight:200;font-size:9.5px;letter-spacing:.5em;text-transform:uppercase;color:var(--gray);
+  }
+
+  /* ============ CHAPTER SCAFFOLD ============ */
+  section{padding:130px 5vw;position:relative}
+  .inner{max-width:1140px;margin:0 auto}
+  .narrow{max-width:740px;margin:0 auto}
+  .chapter-head{display:flex;align-items:baseline;gap:26px;margin-bottom:64px}
+  .chapter-head .num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:22px;color:var(--gold);letter-spacing:.2em}
+  .chapter-head h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,3vw,42px);color:var(--ink);line-height:1.3}
+  .chapter-head::after{content:"";flex:1;height:1px;background:var(--line);transform:translateY(-8px)}
+  .warm{background:var(--paper-2)}
+  p+p{margin-top:24px}
+  .lead{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(21px,2vw,27px);line-height:1.8;color:var(--ink)}
+  .lead .g{color:var(--gold);font-style:italic}
+  .dropcap::first-letter{
+    font-family:'Cormorant Garamond',serif;font-size:64px;line-height:.9;color:var(--gold);
+    float:left;padding:8px 14px 0 0;
+  }
+
+  /* ============ LA OBRA (numbered editorial list) ============ */
+  .obra{margin-top:20px}
+  .obra-item{
+    display:grid;grid-template-columns:110px 300px 1fr;gap:44px;
+    padding:52px 0;border-bottom:1px solid var(--line);align-items:start;
+  }
+  .obra-item:last-child{border-bottom:none}
+  @media(max-width:900px){.obra-item{grid-template-columns:1fr;gap:12px;padding:40px 0}}
+  .obra-item .n{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:40px;color:var(--gold-pale);line-height:1}
+  .obra-item h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:23px;color:var(--ink);line-height:1.4}
+  .obra-item h3 span{display:block;font-family:'Jost',sans-serif;font-weight:300;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:10px}
+  .obra-item p{font-size:16px;color:var(--ink-70)}
+
+  /* ============ TRAYECTORIA ============ */
+  .traj{margin-top:10px}
+  .traj-item{max-width:800px;padding:38px 0;border-bottom:1px solid var(--line)}
+  .traj-item:last-child{border-bottom:none}
+  @media(max-width:760px){.traj-item{grid-template-columns:1fr;gap:8px}}
+  .traj-item .role{font-family:'Jost',sans-serif;font-weight:300;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);padding-top:8px;line-height:2}
+  .traj-item h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;margin-bottom:8px}
+  .traj-item p{font-size:15.5px;color:var(--ink-70)}
+
+  /* ============ EXPERIENCIA ============ */
+  .exp{text-align:center}
+  .exp blockquote{
+    font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+    font-size:clamp(22px,2.6vw,32px);line-height:1.85;color:var(--ink);max-width:860px;margin:0 auto;
+  }
+  .exp blockquote::before{content:"« ";color:var(--gold)}
+  .exp blockquote::after{content:" »";color:var(--gold)}
+  .exp .words{margin-top:64px;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+  .exp .words span{
+    font-family:'Jost',sans-serif;font-weight:300;font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);
+    padding:0 34px;position:relative;line-height:2.6;
+  }
+  .exp .words span+span::before{content:"·";position:absolute;left:-4px;color:var(--gold-pale)}
+
+  /* ============ PENSAMIENTO ============ */
+  .think-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:20px}
+  @media(max-width:900px){.think-grid{grid-template-columns:1fr;gap:44px}}
+  .think-card{border-top:1px solid var(--gold-pale);padding-top:30px}
+  .think-card .k{font-family:'Jost',sans-serif;font-weight:300;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .think-card p{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:20px;line-height:1.75;color:var(--ink)}
+
+  /* ============ CODA · DIVISA ============ */
+  .contact{text-align:center}
+  .contact h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,2.8vw,38px);line-height:1.5;max-width:720px;margin:0 auto 30px}
+  .contact .mail{
+    display:inline-block;font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2vw,26px);
+    color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:5px;
+    transition:color .35s;margin-top:26px;
+  }
+  .contact .mail:hover{color:var(--gold)}
+  .cities{margin-top:56px;font-family:'Jost',sans-serif;font-weight:300;font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--gray)}
+
+  footer{
+    padding:50px 5vw;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  footer p{font-family:'Jost',sans-serif;font-weight:300;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gray)}
+
+  /* Reveal */
+  .rv{opacity:0;transform:translateY(30px);transition:opacity 1.2s ease,transform 1.2s ease}
+  .rv.on{opacity:1;transform:none}
+</style>
 </head>
 <body>
-
-<a class="skip-link" href="#contenido">Ir al contenido</a>
 
 <!-- ============ ENTRADA RITUAL ============ -->
 <div id="veil">
@@ -61,54 +223,32 @@
 </div>
 
 <nav id="nav">
-  <a class="brand" href="index.html">Fabeka <b>Lebrón</b></a>
+  <a class="brand" href="#top">Fabeka <b>Lebrón</b></a>
   <div class="links">
-    <a href="index.html" class="now">Inicio</a>
-    <a href="pensamiento.html">Pensamiento</a>
-    <a href="ensayos.html">Ensayos</a>
-    <a href="trayectoria.html">Trayectoria</a>
+    <a href="#conviccion">La Convicción</a>
+    <a href="#obra">La Obra</a>
+    <a href="biografia.html">Biografía</a>
     <a href="consejos.html">Consejos</a>
     <a href="mentoria.html">Mentoría</a>
-    <a href="plataformas.html">Plataformas</a>
-    <a href="conferencias.html">Conferencias</a>
-    <a href="prensa.html">Prensa</a>
-    <a href="#conversemos">Conversemos</a>
+    <a href="escritura.html">Escritura</a>
+    <a href="pensamiento.html">Pensamiento</a>
   </div>
-  <button class="nav-toggle" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-<div id="mobile-menu">
-  <a href="index.html" class="now">Inicio</a>
-  <a href="pensamiento.html">Pensamiento</a>
-  <a href="ensayos.html">Ensayos</a>
-  <a href="trayectoria.html">Trayectoria</a>
-  <a href="consejos.html">Consejos</a>
-  <a href="mentoria.html">Mentoría</a>
-  <a href="plataformas.html">Plataformas</a>
-  <a href="conferencias.html">Conferencias</a>
-  <a href="prensa.html">Prensa</a>
-  <a href="#conversemos">Conversemos</a>
-  <div class="mm-mail">fabeka@keichergroup.com</div>
-</div>
-
 <!-- ============ HERO ============ -->
-<header class="hero-wrap" id="contenido">
+<header id="top">
   <div class="hero">
     <div>
-      <div class="label">Firma de Pensamiento e Influencia Internacional</div>
+      <p class="hero-line">Construí instituciones a ambos lados del Atlántico. Hoy las gobierno, escribo sobre quienes las hicieron y acompaño a quienes las harán.</p>
       <h1>He dedicado mi vida a crear espacios donde las personas pueden crecer.<br><em>Hoy ese espacio lleva mi nombre.</em></h1>
       <p class="sub">Educación, deporte y cultura: los tres lenguajes que unen a las personas más allá de los intereses.</p>
       <div class="cta">
         <a class="quiet-link" href="#conviccion">Conocer mi trabajo</a>
-        <a class="quiet-link" href="#conversemos">Conversemos</a>
       </div>
     </div>
     <div class="portrait">
       <div class="ph">
-        <!-- IMAGEN TEMPORAL — sustituir por la fotografía oficial -->
-        <img src="assets/img/fabeka-retrato-azul.jpg" alt="Retrato de Fabeka Lebrón" width="680" height="880" loading="eager">
+        <img src="img/foto-entrada.jpg" alt="Fabeka Lebrón">
       </div>
     </div>
   </div>
@@ -129,30 +269,12 @@
 <section id="identidad">
   <div class="inner rv">
     <div class="chapter-head"><span class="num">II</span><h2>Quién soy</h2></div>
-    <div class="bio-cols">
-      <div class="portrait" style="margin-top:8px">
-        <div class="ph">
-          <!-- IMAGEN TEMPORAL — sustituir por la fotografía oficial -->
-          <img src="assets/img/fabeka-retrato-negro.jpg" alt="Retrato de Fabeka Lebrón" width="680" height="880" loading="lazy">
-        </div>
-      </div>
-      <div>
+    <div class="narrow" style="margin:0">
+        <p class="lead" style="font-style:italic;margin-bottom:30px">Construye instituciones y forma personas.</p>
         <p class="dropcap">Soy Fabeka Lebrón Pereyra. Soy dominicana, iberoamericana y ciudadana de dos continentes. Mi vida ha transcurrido entre Santo Domingo, Barcelona, Madrid y São Paulo, y en ese ir y venir descubrí mi verdadera vocación: soy una mujer puente.</p>
-        <p>He sido rectora, empresaria y consejera delegada de proyectos deportivos internacionales, y cada uno de esos mundos me enseñó el idioma de los otros. Por eso pienso en plataformas donde otros ven proyectos, y pienso en décadas donde otros ven temporadas. Mi unidad de medida es la institución que sobrevive a quien la funda.</p>
+        <p>He sido rectora, empresaria y consejera delegada de proyectos deportivos internacionales, y cada uno de esos mundos me enseñó el idioma de los otros. Por eso pienso en plataformas y pienso en décadas. Mi unidad de medida es la institución que sobrevive a quien la funda.</p>
         <p>Pienso desde la estrategia y decido desde los valores. Creo en el largo plazo, en la elegancia de los procesos bien hechos, en la palabra dada y en la belleza como forma de respeto: hacia el trabajo, hacia las personas y hacia una misma.</p>
-        <div style="margin-top:44px;padding-top:34px;border-top:1px solid var(--line)">
-          <div class="label" style="font-size:9.5px;color:var(--gold);margin-bottom:20px">Presencia institucional</div>
-          <p style="font-size:15px;color:var(--ink-70);line-height:2.2">
-            Founding Member — IESE Center for Sports Management<br>
-            Académica de Honor Electa y Embajadora Extraordinaria — RAED<br>
-            Founder &amp; President — Iberoamerican Bridges<br>
-            Fundadora — Barna Business School · Barça Academy RD · MIC Football Punta Cana
-          </p>
-          <p style="margin-top:30px">
-            <a class="quiet-link" href="assets/cv/CV_Fabeka_Lebron_2026_ES.pdf" download>Descargar CV (ES)</a>
-          </p>
-        </div>
-      </div>
+        <p>Esta etapa la dedico a gobernar, a escribir y a acompañar. Escribo memorias profesionales: la vida y la obra de quienes han construido empresa, deporte e instituciones, para que el mundo los vea. Y acompaño, durante un año y de una en una, a personas que están decidiendo el rumbo de su trayectoria y de su vida. Tres verbos y una misma vocación: hacer visible el valor de las personas que construyen.</p>
     </div>
   </div>
 </section>
@@ -165,62 +287,53 @@
     <div class="obra">
       <div class="obra-item">
         <div class="n">I</div>
-        <h3>La plataforma académica<span>IESE Center for Sports Management</span></h3>
-        <p>Como Founding Member, contribuyo a construir el pensamiento académico que el deporte mundial necesita, y articulo su dimensión iberoamericana: contenido, relaciones institucionales y un círculo de familias y líderes de la región.</p>
+        <h3>La firma<span>Diplomacia económica e institucional</span></h3>
+        <p>Iberoamerican Bridges, unidad de Keicher Group, es mi casa profesional: diplomacia económica y articulación institucional. Alianzas entre gobiernos, empresas, universidades y organizaciones internacionales a ambos lados del Atlántico.</p>
       </div>
       <div class="obra-item">
         <div class="n">II</div>
-        <h3>La plataforma intelectual<span>Real Academia Europea de Doctores</span></h3>
-        <p>Como Académica de Honor y Embajadora Extraordinaria, impulso el diálogo intelectual entre Europa e Iberoamérica y dirijo el Congreso Internacional Retos Vitales, plataforma anual de pensamiento estratégico con edición inaugural en Santo Domingo, 2027.</p>
-      </div>
-      <div class="obra-item">
-        <div class="n">III</div>
-        <h3>La firma<span>Iberoamerican Bridges</span></h3>
-        <p>Mi casa profesional: diplomacia económica y consejería estratégica. Alianzas entre gobiernos, empresas, universidades y organizaciones internacionales a ambos lados del Atlántico.</p>
-      </div>
-      <div class="obra-item">
-        <div class="n">IV</div>
         <h3>La gobernanza<span>Consejos de Administración</span></h3>
         <p>El consejo es el lugar natural de esta etapa: allí donde la experiencia se convierte en gobernanza. Sirvo en consejos donde la educación, el deporte, la cultura o Iberoamérica forman parte de la ecuación.</p>
       </div>
       <div class="obra-item">
+        <div class="n">III</div>
+        <h3>La plataforma académica<span>El futuro del deporte</span></h3>
+        <p>Respaldo desde su origen el IESE Sports Management Center, entre los founding partners que el IESE reconoce como visionarios: una plataforma donde ejecutivos, emprendedores, inversores, deportistas, organismos rectores, estudiantes y académicos dialogan, generan conocimiento y dan forma al futuro del deporte, con la aspiración de ser referencia global en excelencia, profesionalización y liderazgo responsable en la industria del deporte.</p>
+      </div>
+      <div class="obra-item">
+        <div class="n">IV</div>
+        <h3>La plataforma intelectual<span>Diálogo entre Europa e Iberoamérica</span></h3>
+        <p>En la Real Academia Europea de Doctores impulso el diálogo intelectual entre Europa e Iberoamérica y convoco el Congreso Internacional RAED · Retos Vitales, plataforma de pensamiento estratégico con edición inaugural en Santo Domingo.</p>
+      </div>
+      <div class="obra-item">
         <div class="n">V</div>
-        <h3>La mentoría<span>La dimensión humana de la obra</span></h3>
-        <p>Acompaño a jóvenes profesionales, a la siguiente generación de las empresas familiares, a mujeres líderes y a emprendedores con propósito en la construcción de trayectorias con criterio, confianza y visión internacional.</p>
+        <h3>La mentoría<span>Mentoría Estratégica · Plan de Trayectoria y Vida</span></h3>
+        <p>Un año, una persona. Acompaño a jóvenes profesionales, a la siguiente generación de las empresas familiares, a mujeres líderes y a emprendedores con propósito en la construcción de trayectorias con criterio, confianza y visión internacional.</p>
       </div>
     </div>
-    <p style="margin-top:56px;text-align:center"><a class="quiet-link" href="plataformas.html">Ver las plataformas</a></p>
   </div>
 </section>
 
 <!-- ============ IV — TRAYECTORIA ============ -->
-<section id="trayectoria">
+<section id="biografia">
   <div class="inner rv">
-    <div class="chapter-head"><span class="num">IV</span><h2>Trayectoria</h2></div>
-    <p class="lead" style="max-width:720px">Instituciones que hoy <span class="g">caminan solas</span>.</p>
+    <div class="chapter-head"><span class="num">IV</span><h2>Biografía</h2></div>
+    <p class="lead" style="max-width:720px">Instituciones que <span class="g">perduran</span>.</p>
     <div class="traj">
       <div class="traj-item">
-        <div class="role">Fundadora y Primera Rectora</div>
-        <div><h3>Barna Business School</h3><p>La escuela de negocios más influyente del Caribe. Primer MBA internacional con EADA y la Universidad de Barcelona, y primer AMP del IESE en República Dominicana.</p></div>
+        <div><h3>Barna Business School</h3><p>La primera universidad especializada en negocios del país. En paralelo, trajo a República Dominicana el primer Advanced Management Program del IESE.</p></div>
       </div>
       <div class="traj-item">
-        <div class="role">Consejera Delegada</div>
-        <div><h3>FC Barcelona · Brasil</h3><p>Primer club formador y modelo formativo del FC Barcelona fuera de España: un referente técnico, educativo e institucional en América Latina.</p></div>
+        <div><h3>FC Barcelona · Brasil</h3><p>Impulsó la creación del primer club formador del FC Barcelona fuera de España: un referente técnico, educativo e institucional para América Latina.</p></div>
       </div>
       <div class="traj-item">
-        <div class="role">Fundadora</div>
         <div><h3>Caribbean Futbol Club · Barça Academy República Dominicana</h3><p>Partner oficial del FC Barcelona en República Dominicana y creación de la Barça Academy Copa Las Américas, ecosistema formativo continental.</p></div>
       </div>
       <div class="traj-item">
-        <div class="role">Fundadora y CEO</div>
         <div><h3>MIC Football Punta Cana</h3><p>Sede oficial para América del torneo juvenil de referencia mundial: deporte, turismo y diplomacia económica al servicio de la Marca País.</p></div>
       </div>
-      <div class="traj-item">
-        <div class="role">Esta etapa</div>
-        <div><h3>IESE · RAED · Iberoamerican Bridges</h3><p>Gobernanza, pensamiento y diplomacia económica desde Barcelona, con vínculos activos en Madrid, Lisboa, República Dominicana, Colombia y Brasil.</p></div>
-      </div>
     </div>
-    <p style="margin-top:56px;text-align:center"><a class="quiet-link" href="trayectoria.html">Trayectoria completa</a></p>
+    <p style="margin-top:54px"><a class="quiet-link" href="biografia.html">Leer la biografía</a></p>
   </div>
 </section>
 
@@ -232,7 +345,7 @@
       Quiero que cada persona que termine una conversación conmigo se marche con una profunda sensación de serenidad, claridad y confianza. Que vuelva a creer en sí misma. Que descubra que sus sueños pueden transformarse en proyectos reales cuando nacen de su propósito, de sus valores y de su propia voz.
     </blockquote>
     <div class="words">
-      <span>Serenidad</span><span>Claridad</span><span>Confianza</span><span>Propósito</span>
+      <span>Convicción</span><span>Criterio</span><span>Impulso</span><span>Legado</span>
     </div>
     <p style="margin-top:54px"><a class="quiet-link" href="mentoria.html">Conocer la mentoría</a></p>
   </div>
@@ -256,50 +369,44 @@
         <p>«Cuando una persona desarrolla criterio, valores, visión y excelencia, la prosperidad llega como consecuencia del valor que aporta al mundo.»</p>
       </div>
     </div>
-    <p style="margin-top:60px;text-align:center"><a class="quiet-link" href="ensayos.html">Leer los ensayos</a></p>
+    <p style="margin-top:60px;text-align:center"><a class="quiet-link" href="pensamiento.html">Leer los ensayos</a></p>
   </div>
 </section>
 
-<!-- ============ VII — CONVERSEMOS ============ -->
-<section id="conversemos" class="warm contact">
+<!-- ============ CODA — LA DIVISA ============ -->
+<section id="divisa" class="warm contact">
   <div class="narrow rv">
-    <div class="chapter-head" style="max-width:740px;margin:0 auto 64px"><span class="num">VII</span><h2>Conversemos</h2></div>
-    <h2 class="claim">Muchas veces, una sola conversación puede cambiar el rumbo de una vida.</h2>
-    <a class="mail" href="mailto:fabeka@keichergroup.com">fabeka@keichergroup.com</a>
+    <h2 class="display" style="font-style:italic">Las instituciones valen lo que vale su gente.</h2>
     <div class="cities">Barcelona &nbsp;·&nbsp; São Paulo &nbsp;·&nbsp; Santo Domingo</div>
   </div>
 </section>
 
-<footer>
-  <div class="map">
-    <a href="pensamiento.html">Pensamiento</a>
-    <a href="ensayos.html">Ensayos</a>
-    <a href="trayectoria.html">Trayectoria</a>
-    <a href="consejos.html">Consejos &amp; Advisory</a>
-    <a href="mentoria.html">Mentoría</a>
-    <a href="plataformas.html">Plataformas</a>
-    <a href="conferencias.html">Conferencias</a>
-    <a href="prensa.html">Prensa</a>
-    <a href="assets/cv/CV_Fabeka_Lebron_2026_ES.pdf">CV (ES)</a>
-    <a href="assets/cv/CV_Fabeka_Lebron_2026_EN.pdf">CV (EN)</a>
-  </div>
-  <div class="base">
-    <p>© 2026 Fabeka Lebrón · Iberoamerican Bridges &nbsp;·&nbsp; Educación · Cultura · Deporte · Iberoamérica</p>
-  </div>
+<footer style="flex-direction:column;gap:26px">
+  <p style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center">
+    <a href="pensamiento.html" style="color:inherit;text-decoration:none">Pensamiento</a>
+    <a href="biografia.html" style="color:inherit;text-decoration:none">Biografía</a>
+    <a href="consejos.html" style="color:inherit;text-decoration:none">Consejos &amp; Advisory</a>
+    <a href="mentoria.html" style="color:inherit;text-decoration:none">Mentoría</a>
+    <a href="plataformas.html" style="color:inherit;text-decoration:none">Plataformas</a>
+    <a href="escritura.html" style="color:inherit;text-decoration:none">Escritura</a>
+  </p>
+  <p style="text-align:center;line-height:2.2">© 2026 Fabeka Lebrón · Iberoamerican Bridges · Keicher Group<br>Firma de Pensamiento e Influencia Internacional<br>Educación · Cultura · Deporte · Iberoamérica</p>
 </footer>
 
 <script>
   function enter(){
-    var v = document.getElementById('veil');
-    if(!v) return;
-    v.classList.add('gone');
-    setTimeout(function(){ v.style.display='none'; }, 1300);
+    document.getElementById('veil').classList.add('gone');
+    setTimeout(()=>{document.getElementById('veil').style.display='none'},1500);
   }
-  setTimeout(function(){
-    var v = document.getElementById('veil');
-    if(v && !v.classList.contains('gone')) enter();
-  }, 6000);
+  // auto-enter tras 9s si la persona contempla
+  setTimeout(()=>{ if(!document.getElementById('veil').classList.contains('gone')) enter(); }, 9000);
+
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10)});
+
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
 </script>
-<script src="site.js" defer></script>
 </body>
 </html>
